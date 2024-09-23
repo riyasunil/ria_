@@ -2,7 +2,9 @@ import React from 'react'
 
 const Connect = () => {
   return (
-    <div>Connect</div>
+    <div className='h-screen'>
+        
+    </div>
   )
 }
 

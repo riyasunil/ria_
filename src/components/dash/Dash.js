@@ -11,11 +11,9 @@ const Dash = () => {
 
         {/* links */}
         <div className="links font-times text-lg flex flex-row mt-6 gap-10">
-            <a>ABOUT</a>
+            <a href='/about'>ABOUT</a>
             <a href='/tools'>SKILLS</a>
-            <p>PROJECTS</p>
-            <p>BLOG</p>
-            <p>CONNECT</p>
+            <a href='/projects'>PROJECTS</a>
         </div>
         {/* links */}
         
@@ -24,11 +22,20 @@ const Dash = () => {
 
       {/* featured */}
       <div className="featured flex flex-col font-times mx-32">
-        <p className='mb-4'>FEATURED</p>
+        <p className='italic text-3xl'> A little about me, </p>
+        <p className=''>Hey, I'm Riya Sunil, University Student, self-taught designer and developer based in Kochi.<br />
+          I like to build things, whether its for the web or my living room table or tinkets.
+          
+        </p>
+        {/* <p className='mb-4'>FEATURED</p>
         <div className="featblock flex flex-row justify-between">
-          <img className='placeholder w-[25rem]'src={ph}/>
-          <p className=''>Whisperings of Anna ~ Issue No. 28, January/ February 2024</p>
-        </div>
+          <div className='bg-gray-200 w-[25rem] h-[15rem]'></div>
+          <div className='flex flex-col'>
+          <p className=''>PROJECT NAME ~ a short description or maybe a little longer</p>
+          <p className='italic'>full-stack</p>
+          </div>
+          
+        </div> */}
       </div>
 
     </div>
