@@ -11,6 +11,16 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const getSnell = localFont({
+  src: "./fonts/SnellBT.otf",
+  variable: "--font-snell-bt",
+  weight: "100 900"
+})
+const getApple = localFont({
+  src: "./fonts/AppleGaramond.ttf",
+  variable: "--font-apple",
+  weight: "100 900"
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -21,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${getSnell.variable} ${getApple.variable} $ antialiased`}
       >
         {children}
       </body>
