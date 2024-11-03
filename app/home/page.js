@@ -3,7 +3,7 @@ import Sidebar from "@/components/sidebar/Sidebar";
 
 import React from "react";
 
-function Home() {
+function HomePage() {
   return (
     <div className="mainpage h-screen flex flex-row bg-eggshell text-black">
       <Sidebar />
@@ -13,4 +13,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

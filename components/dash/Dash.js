@@ -8,14 +8,14 @@ const Dash = () => {
       {/* header   */}
       <div className="header w-full h-2/5 flex flex-col justify-center items-center p-10">
 
-        <Image alt='R-logo' src={R} className='w-32' />
+        {/* <Image alt='R-logo' src={R} className='w-32' /> */}
 
         {/* links */}
-        <div className="links font-times text-lg flex flex-row mt-6 gap-10">
+        {/* <div className="links font-times text-lg flex flex-row mt-6 gap-10">
             <a href='/about'>ABOUT</a>
             <a href='/tools'>SKILLS</a>
             <a href='/projects'>PROJECTS</a>
-        </div>
+        </div> */}
         {/* links */}
         
       </div>
