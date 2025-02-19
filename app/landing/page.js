@@ -13,7 +13,7 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 
 const CurvedScrollableNavigation = () => {
-  const [activeSection, setActiveSection] = useState("projects");
+  const [activeSection, setActiveSection] = useState("about");
   const sectionsRef = useRef({});
   const rightSideRef = useRef(null);
 
