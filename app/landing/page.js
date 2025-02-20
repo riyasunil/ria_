@@ -9,13 +9,22 @@ import {
   FaTwitter,
   FaEnvelope,
   FaInstagram,
+  FaBars,
+  FaTimes,
 } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 
 const CurvedScrollableNavigation = () => {
   const [activeSection, setActiveSection] = useState("about");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const sectionsRef = useRef({});
   const rightSideRef = useRef(null);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
 
    const socialLinks = [
      {
@@ -176,13 +185,15 @@ const CurvedScrollableNavigation = () => {
     const activeIndex = navItems.findIndex((item) => item.id === activeSection);
     const distanceFromActive = index - activeIndex;
     const horizontalOffset = Math.abs(distanceFromActive) * 2;
-    const verticalSpacing = 20;
+
     return {
       transform: isActive
-        ? `translateX(0px) scale(1.2)`
-        : `translateX(-${horizontalOffset}vh) scale(0.8)`,
-      marginTop: `${verticalSpacing}px`,
-      marginBottom: `${verticalSpacing}px`,
+        ? `translateX(0px) scale(${window.innerWidth < 768 ? "1.1" : "1.2"})`
+        : `translateX(-${
+            window.innerWidth < 768 ? horizontalOffset / 2 : horizontalOffset
+          }vh) scale(${window.innerWidth < 768 ? "0.9" : "0.8"})`,
+      marginTop: window.innerWidth < 768 ? "10px" : "20px",
+      marginBottom: window.innerWidth < 768 ? "10px" : "20px",
       opacity: isActive ? 1 : 0.5,
       transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
       transformOrigin: "left center",
@@ -196,22 +207,42 @@ const CurvedScrollableNavigation = () => {
       <div>
         <Toaster />
       </div>
+
+      <button
+        className="md:hidden fixed top-4 right-4 z-50 p-2 bg-gray-800 rounded-full"
+        onClick={toggleMobileMenu}
+      >
+        {isMobileMenuOpen ? (
+          <FaTimes className="w-6 h-6" />
+        ) : (
+          <FaBars className="w-6 h-6" />
+        )}
+      </button>
+
       {/* left */}
-      <div className="left w-full md:w-1/2 ">
-        <div className="h-full py-20 pl-8 md:pl-20 pr-4 flex flex-col justify-center">
+      <div
+        className={`left w-full md:w-1/2 ${
+          isMobileMenuOpen
+            ? "fixed inset-0 z-40 bg-[#0c1029f8]"
+            : "hidden md:block"
+        }`}
+      >
+        <div className="h-full py-10 md:py-20 px-6 md:pl-20 md:pr-4 flex flex-col justify-center">
           {navItems.map((item, index) => (
             <button
               key={item.id}
-              id={`nav-${item.id}`}
-              onClick={() => scrollToSection(item.id)}
-              className="text-left py-3 focus:outline-none relative"
+              onClick={() => {
+                scrollToSection(item.id);
+                setIsMobileMenuOpen(false);
+              }}
+              className="text-left py-2 md:py-3 focus:outline-none relative"
               style={getNavItemStyles(index, activeSection === item.id)}
             >
-              <span className="text-7xl md:text-8xl font-bold transition-all duration-300 inline-block whitespace-nowrap font-mono">
+              <span className="text-4xl md:text-8xl font-bold transition-all duration-300 inline-block whitespace-nowrap font-mono">
                 {item.label}
               </span>
               {activeSection === item.id && (
-                <span className="absolute -left-8 top-1/2 transform -translate-y-1/2 text-xl">
+                <span className="hidden md:absolute -left-4 md:-left-8 top-1/2 transform -translate-y-1/2 text-base md:text-xl">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               )}
