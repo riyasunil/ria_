@@ -1,28 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,jsx,mdx}",
+    "./app/**/*.{js,jsx,mdx}",
+    "./lib/**/*.js",
   ],
   theme: {
     extend: {
-      screens: {
-  			break1: '1380px',
-        break2 : '851px',
-  		},
-      boxShadow: {
-        'custom': '1px 0px 4px rgba(0, 0, 0, 0.4)', // Custom shadow for sidebar
-      },
-      fontFamily:{
-        'times' : ['Times New Roman', 'serif'],
-        'snell': ['var(--font-snell-bt)', 'sans-serif'],
-        'apple' : ['var(--font-apple)', 'serif'],
-      },
+      screens: { xs: "360px" },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        eggshell : "#f2f3f4"
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        ink: "var(--ink)",
+        muted: "var(--muted)",
+        line: "var(--line)",
+        accent: "var(--accent)",
+        "accent-soft": "var(--accent-soft)",
+        live: "var(--live)",
+      },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        display: ["var(--font-apple)", "Georgia", "serif"],
+        script: ["var(--font-snell-bt)", "cursive"],
       },
     },
   },
